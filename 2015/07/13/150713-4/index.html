@@ -45,7 +45,7 @@
 
 
 
-  <title> 自定义博客域名 // 曹光鹏的博客 </title>
+  <title> Markdown快速入门 // 曹光鹏的博客 </title>
 </head>
 
 <body>
@@ -140,7 +140,7 @@
           
           
             
-              自定义博客域名
+              Markdown快速入门
             
           
         </h1>
@@ -168,8 +168,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/13/150713-2/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/150713-2/"></span>
+            <a href="/2015/07/13/150713-4/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/150713-4/"></span>
             </a>
           </span>
           
@@ -183,17 +183,58 @@
       
 
       
-        <p>前面的文章介绍了如何用Github Pages和Hexo搭建一个博客，这篇文章我来讲述下如何自定义域名，用github pages搭建的博客，默认域名是形如<code>xx.github.io</code>，那么我们会想如果能自己设置个域名，是多么cool的事！那要怎么操作呢？首先我们要有域名</p>
-<h2 id="购买域名">购买域名</h2><p>可以在好多网站购买域名，我以<a href="http://www.net.cn/" target="_blank" rel="external">万网</a>举例，登录其官网，先查查看心仪的域名是否已被购买，如图</p>
-<p><img src="http://7xkbsd.com1.z0.glb.clouddn.com/150713domain_query.png" alt="domain_query"></p>
-<p>因为我已经买了caoguangpeng.com，所以显示已被注册，你只要找个尚未注册的，然后购买付钱即可</p>
-<h2 id="域名解析">域名解析</h2><p>我以自己的用户名为例，我们希望将<code>caoguangpeng.github.io</code>替换成<code>caoguangpeng.com</code>，只要设置下解析即可，如图</p>
-<p><img src="http://7xkbsd.com1.z0.glb.clouddn.com/150713dns.png" alt="dns"></p>
-<p>说明下：192.30.252.154和192.30.252.153是github pages对应的ip地址，这步一定要设置，否则访问不了</p>
-<p>至此，域名来源就搞定了。</p>
-<h2 id="添加CNAME">添加CNAME</h2><p>下面我们去github设置下，很简单，只要在<code>caoguangpeng.github.io</code>仓库根目录下，新建个名为<code>CNAME</code>的文件，里面内容只要写上<code>caoguangpeng.com</code></p>
-<p>就这样你就可以输入<a href="http://caoguangpeng.com" target="_blank" rel="external">caoguangpeng.com</a>来访问博客了。</p>
+        <p>Markdown是一种轻量级的标记语言，类似于HTML的标记语法，可以使普通文本内容具有一定的格式。<br>如图所示，左边是Markdown编写时的样子，右边是最终显示的样子</p>
+<p><img src="http://7xkbsd.com1.z0.glb.clouddn.com/150713markdown_shot.png" alt="markdown_shot"></p>
+<p>可以用很多工具进行Markdown写作，比如：</p>
+<pre><code>在线:简书，不过不支持<span class="keyword">Tab</span>
 
+<span class="keyword">Mac</span> OSX:Mou，首选的工具，边写边预览。当然自带的文本编辑器和Sublime之类的都可以，但都不如Mou。
+</code></pre><p><a href="http://25.io/mou/" target="_blank" rel="external">Mou下载链接</a></p>
+<p>本文会列举些常用的语法，如果要看完整的，请看<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdown语法说明</a></p>
+<h1 id="分级标题">分级标题</h1><p>一共分为6级</p>
+<pre><code><span class="preprocessor"># 一级标题</span>
+<span class="preprocessor">## 二级标题</span>
+<span class="preprocessor">### 三级标题</span>
+<span class="preprocessor">#### 四级标题</span>
+<span class="preprocessor">##### 五级标题</span>
+<span class="preprocessor">###### 六级标题</span>
+
+从上到下字号依次减小
+</code></pre><h1 id="列表项">列表项</h1><h2 id="无序列表">无序列表</h2><p>可以使用*、-或+开头（效果一样的），然后空一格，再写列表项的标题即可，如下所示</p>
+<pre><code><span class="keyword">*</span> 中国
+    <span class="keyword">*</span> 北京
+    <span class="keyword">*</span> 深圳
+    <span class="keyword">*</span> 成都
+</code></pre><h2 id="有序列表">有序列表</h2><p>使用数字+小数点+空格+列表项</p>
+<pre><code><span class="bullet">1. </span>冠军
+<span class="bullet">2. </span>亚军
+<span class="bullet">3. </span>季军 
+<span class="bullet">4. </span>殿军
+</code></pre><h1 id="强调">强调</h1><pre><code>加粗：
+<span class="keyword">*</span><span class="keyword">*</span>文字<span class="keyword">*</span><span class="keyword">*</span> 或者 __文字__
+
+斜体：
+<span class="keyword">*</span>文字<span class="keyword">*</span> 或者 _文字_
+
+字上加删除线：
+~~文字~~
+</code></pre><h1 id="超链接">超链接</h1><pre><code>[<span class="link_label">点我吧</span>](<span class="link_url">http://caoguangpeng.com</span>)
+</code></pre><h1 id="图片">图片</h1><pre><code>![<span class="link_label">Mou</span>](<span class="link_url">http://25.io/mou/Mou_128.png</span>)
+</code></pre><h1 id="代码">代码</h1><p>3种方式：</p>
+<pre><code><span class="number">1</span>.每行代码开头加<span class="number">4</span>个空格
+<span class="number">2</span>.每行代码开头加<span class="number">1</span>个Tab缩进
+<span class="number">3</span>.对于多行的，头尾各加三个<span class="escape">`(</span>反引号)，并且建议三个引号独立成行，这样样式好看些
+</code></pre><h1 id="引用">引用</h1><pre><code><span class="blockquote">&gt; 你引用的东东</span>
+<span class="blockquote">&gt; &gt; 你嵌套引用的东东</span>
+</code></pre><h1 id="分隔线">分隔线</h1><pre><code>--- （三个及以上即可，一定注意与上一行文字保持一个空行）
+或者
+<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> （同上）
+</code></pre><h1 id="表格">表格</h1><pre><code><span class="constant">First Header </span>| <span class="constant">Second Header </span>| <span class="constant">Third Header</span>
+<span class="symbol">:------------|</span><span class="symbol">:-------------</span><span class="symbol">:|------------</span><span class="symbol">:</span>
+<span class="constant">Content </span>     | <span class="constant">Content </span>      | <span class="constant">Content</span>
+<span class="constant">Left </span>       | <span class="constant">Center </span>      | <span class="constant">Right</span>
+</code></pre><h1 id="加空行">加空行</h1><pre><code>可以用html语法 &lt;<span class="keyword">br </span>/&gt;，这命令支持Mou预览        
+</code></pre>
       
     </div>
 
@@ -204,13 +245,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/13/150713-3/">配置Hexo主题</a>
+              <a href="/2015/07/13/150713-5/">Vim常用命令</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/13/150713-1/">使用Github Pages和Hexo搭建博客</a>
+              <a href="/2015/07/13/150713-3/">配置Hexo主题</a>
             
           </div>
         </div>
@@ -230,8 +271,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/13/150713-2/"
-               data-title="自定义博客域名" data-url="http://yoursite.com/2015/07/13/150713-2/">
+          <div class="ds-thread" data-thread-key="2015/07/13/150713-4/"
+               data-title="Markdown快速入门" data-url="http://yoursite.com/2015/07/13/150713-4/">
           </div>
         
       </div>
@@ -326,7 +367,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#购买域名"><span class="nav-number">1.</span> <span class="nav-text">购买域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名解析"><span class="nav-number">2.</span> <span class="nav-text">域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加CNAME"><span class="nav-number">3.</span> <span class="nav-text">添加CNAME</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分级标题"><span class="nav-number">1.</span> <span class="nav-text">分级标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表项"><span class="nav-number">2.</span> <span class="nav-text">列表项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无序列表"><span class="nav-number">2.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序列表"><span class="nav-number">2.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强调"><span class="nav-number">3.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#超链接"><span class="nav-number">4.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片"><span class="nav-number">5.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用"><span class="nav-number">7.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分隔线"><span class="nav-number">8.</span> <span class="nav-text">分隔线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格"><span class="nav-number">9.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加空行"><span class="nav-number">10.</span> <span class="nav-text">加空行</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

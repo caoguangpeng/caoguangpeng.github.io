@@ -45,7 +45,7 @@
 
 
 
-  <title> 自定义博客域名 // 曹光鹏的博客 </title>
+  <title> Vim常用命令 // 曹光鹏的博客 </title>
 </head>
 
 <body>
@@ -140,7 +140,7 @@
           
           
             
-              自定义博客域名
+              Vim常用命令
             
           
         </h1>
@@ -168,8 +168,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/13/150713-2/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/150713-2/"></span>
+            <a href="/2015/07/13/150713-5/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/150713-5/"></span>
             </a>
           </span>
           
@@ -183,16 +183,199 @@
       
 
       
-        <p>前面的文章介绍了如何用Github Pages和Hexo搭建一个博客，这篇文章我来讲述下如何自定义域名，用github pages搭建的博客，默认域名是形如<code>xx.github.io</code>，那么我们会想如果能自己设置个域名，是多么cool的事！那要怎么操作呢？首先我们要有域名</p>
-<h2 id="购买域名">购买域名</h2><p>可以在好多网站购买域名，我以<a href="http://www.net.cn/" target="_blank" rel="external">万网</a>举例，登录其官网，先查查看心仪的域名是否已被购买，如图</p>
-<p><img src="http://7xkbsd.com1.z0.glb.clouddn.com/150713domain_query.png" alt="domain_query"></p>
-<p>因为我已经买了caoguangpeng.com，所以显示已被注册，你只要找个尚未注册的，然后购买付钱即可</p>
-<h2 id="域名解析">域名解析</h2><p>我以自己的用户名为例，我们希望将<code>caoguangpeng.github.io</code>替换成<code>caoguangpeng.com</code>，只要设置下解析即可，如图</p>
-<p><img src="http://7xkbsd.com1.z0.glb.clouddn.com/150713dns.png" alt="dns"></p>
-<p>说明下：192.30.252.154和192.30.252.153是github pages对应的ip地址，这步一定要设置，否则访问不了</p>
-<p>至此，域名来源就搞定了。</p>
-<h2 id="添加CNAME">添加CNAME</h2><p>下面我们去github设置下，很简单，只要在<code>caoguangpeng.github.io</code>仓库根目录下，新建个名为<code>CNAME</code>的文件，里面内容只要写上<code>caoguangpeng.com</code></p>
-<p>就这样你就可以输入<a href="http://caoguangpeng.com" target="_blank" rel="external">caoguangpeng.com</a>来访问博客了。</p>
+        <p>Vim有三种模式：命令模式(Command mode)，插入模式(Insert mode)和底线命令模式(Last line mode)。<br>用户刚刚启动Vim，便进入了命令模式。</p>
+<pre><code><span class="tag">i</span> 切换到插入模式，以输入字符。
+: 切换到底线命令模式，以在最底一行输入命令。
+</code></pre><p><br>              </p>
+<h1 id="命令模式">命令模式</h1><h2 id="光标移动">光标移动</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w, e, W, E</td>
+<td>跳到单词的后面  </td>
+</tr>
+<tr>
+<td>b, B</td>
+<td>跳到单词的前面</td>
+</tr>
+<tr>
+<td>^</td>
+<td>到行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>到行尾</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>到第一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>到最后一行</td>
+</tr>
+<tr>
+<td>[N]G</td>
+<td>到指定行</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="编辑">编辑</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J</td>
+<td>合并下一行到上一行  </td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销上一步操作</td>
+</tr>
+<tr>
+<td>ctrl+r</td>
+<td>恢复上一步操作</td>
+</tr>
+<tr>
+<td>[N]&gt;&gt;</td>
+<td>一行或N行往右移动一个tab</td>
+</tr>
+<tr>
+<td>[N]&lt;&lt;</td>
+<td>一行或N行往左移动一个tab</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="搜索">搜索</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/pattern</td>
+<td>搜索  </td>
+</tr>
+<tr>
+<td>?pattern</td>
+<td>反方向搜索</td>
+</tr>
+<tr>
+<td>n</td>
+<td>到搜索结果的后一个目标</td>
+</tr>
+<tr>
+<td>N</td>
+<td>到搜索结果的前一个目标</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="选中">选中</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>选中一个或多个字符（配合方向键）  </td>
+</tr>
+<tr>
+<td>V</td>
+<td>选中一行</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="剪切和复制">剪切和复制</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dd</td>
+<td>删除一行  </td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除一个单词</td>
+</tr>
+<tr>
+<td>[N]yy</td>
+<td>复制一行或者N行</td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="进入到插入模式">进入到插入模式</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>插入到光标前面  </td>
+</tr>
+<tr>
+<td>o, O</td>
+<td>新开一行</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>退出插入模式</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<h1 id="底线命令模式">底线命令模式</h1><h2 id="显示行号">显示行号</h2><pre><code><span class="keyword">set</span> <span class="type">number</span>
+</code></pre><h2 id="关闭">关闭</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wq, x</td>
+<td>保存并关闭  </td>
+</tr>
+<tr>
+<td>q</td>
+<td>关闭（当前无改动前提下）</td>
+</tr>
+<tr>
+<td>q!</td>
+<td>强制关闭（放弃未保存的）</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -204,13 +387,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/13/150713-3/">配置Hexo主题</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/13/150713-1/">使用Github Pages和Hexo搭建博客</a>
+              <a href="/2015/07/13/150713-4/">Markdown快速入门</a>
             
           </div>
         </div>
@@ -230,8 +411,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/13/150713-2/"
-               data-title="自定义博客域名" data-url="http://yoursite.com/2015/07/13/150713-2/">
+          <div class="ds-thread" data-thread-key="2015/07/13/150713-5/"
+               data-title="Vim常用命令" data-url="http://yoursite.com/2015/07/13/150713-5/">
           </div>
         
       </div>
@@ -326,7 +507,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#购买域名"><span class="nav-number">1.</span> <span class="nav-text">购买域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名解析"><span class="nav-number">2.</span> <span class="nav-text">域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加CNAME"><span class="nav-number">3.</span> <span class="nav-text">添加CNAME</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式"><span class="nav-number">1.</span> <span class="nav-text">命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#光标移动"><span class="nav-number">1.1.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑"><span class="nav-number">1.2.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">1.3.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选中"><span class="nav-number">1.4.</span> <span class="nav-text">选中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪切和复制"><span class="nav-number">1.5.</span> <span class="nav-text">剪切和复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入到插入模式"><span class="nav-number">1.6.</span> <span class="nav-text">进入到插入模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#底线命令模式"><span class="nav-number">2.</span> <span class="nav-text">底线命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#显示行号"><span class="nav-number">2.1.</span> <span class="nav-text">显示行号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭"><span class="nav-number">2.2.</span> <span class="nav-text">关闭</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

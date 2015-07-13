@@ -198,7 +198,8 @@ Enter file <span class="keyword">in</span> which <span class="keyword">to</span>
 Enter same passphrase again:<span class="variable">&lt;再次输入加密串&gt;</span>
 </code></pre><p>这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
 <p>之后敲回车，再查看是否生成默认名字是id_rsa(私钥)和id_rsa.pub(公钥)两个文件，如果都有，那就成功了。</p>
-<h3 id="上传ssh_key(-pub后缀)到github">上传ssh key(.pub后缀)到github</h3><p>打开github网站，进入用户Settings—-&gt;SSH keys —-&gt; Add SSH key，添加id_rsa.pub的内容即可。</p>
+<pre><code>Note：如果有多对ssh <span class="variable">key</span>，要注意的是，github默认是读取命名为id_rsa的，这个要注意更新哦
+</code></pre><h3 id="上传ssh_key(-pub后缀)到github">上传ssh key(.pub后缀)到github</h3><p>打开github网站，进入用户Settings—-&gt;SSH keys —-&gt; Add SSH key，添加id_rsa.pub的内容即可。</p>
 <h3 id="测试ssh_key是否设置成功">测试ssh key是否设置成功</h3><pre><code><span class="variable">$ </span>ssh -<span class="constant">T </span>git<span class="variable">@github</span>.com
 </code></pre><p>如果出现例如</p>
 <pre><code>Hi caoguangpeng! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.
@@ -231,7 +232,8 @@ Enter same passphrase again:<span class="variable">&lt;再次输入加密串&gt;
     <span class="attribute">type</span>: github      
     <span class="attribute">repository</span>:git<span class="variable">@github</span>.<span class="attribute">com</span>:caoguangpeng/caoguangpeng.github.io.git <span class="comment">//当然你要改成自己的用户名   </span>
     <span class="attribute">branch</span>: master 
-</code></pre><h3 id="执行部署">执行部署</h3><pre><code>hexo g
+</code></pre><h3 id="执行部署">执行部署</h3><pre><code>hexo clean
+hexo g
 hexo <span class="function"><span class="title">deploy</span><span class="params">(缩写d)</span></span>
 </code></pre><p>执行完以后,如果报错 Error: Deployer not found : github,则执行如下命令:</p>
 <pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
@@ -239,8 +241,10 @@ hexo <span class="function"><span class="title">deploy</span><span class="params
 <pre><code>deploy:
     <span class="class"><span class="keyword">type</span>: <span class="title">git</span></span>
 </code></pre><p>然后再执行：</p>
-<pre><code>hexo <span class="keyword">g</span>
+<pre><code>hexo clean
+hexo <span class="keyword">g</span>
 hexo <span class="literal">d</span>
+后两条可以组合为 hexo <span class="keyword">d</span> -<span class="keyword">g</span>
 </code></pre><p>最后访问:<code>http://caoguangpeng.github.io/</code> (<strong>用户名改成自己的</strong>),就可以看到了.</p>
 <p><code>注意,每次修改本地目录下的文件后，需要hexo generate才能保存;另外每次deploy，都是覆盖操作，这样CNAME文件就消失了，为了避免每次都创建，我们可以在source目录下，创建CNAME，然后每次部署后，就自动会上传CNAME的</code></p>
 <p>好了，至此博客搭建的过程就大功告成了，是不是很简单，赶紧动手试试吧！后续我会讲讲如何修改hexo的主题，以及如何写博客，敬请期待吧…</p>
@@ -327,7 +331,7 @@ hexo <span class="literal">d</span>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
