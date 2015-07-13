@@ -239,10 +239,10 @@ hexo <span class="function"><span class="title">deploy</span><span class="params
 <pre><code>deploy:
     <span class="class"><span class="keyword">type</span>: <span class="title">git</span></span>
 </code></pre><p>然后再执行：</p>
-<pre><code>  hexo <span class="keyword">g</span>
+<pre><code>hexo <span class="keyword">g</span>
 hexo <span class="literal">d</span>
 </code></pre><p>最后访问:<code>http://caoguangpeng.github.io/</code> (<strong>用户名改成自己的</strong>),就可以看到了.</p>
-<p><code>注意,每次修改配置文件后，需要hexo generate才能保存</code></p>
+<p><code>注意,每次修改本地目录下的文件后，需要hexo generate才能保存;另外每次deploy，都是覆盖操作，这样CNAME文件就消失了，为了避免每次都创建，我们可以在source目录下，创建CNAME，然后每次部署后，就自动会上传CNAME的</code></p>
 <p>好了，至此博客搭建的过程就大功告成了，是不是很简单，赶紧动手试试吧！后续我会讲讲如何修改hexo的主题，以及如何写博客，敬请期待吧…</p>
 
       
