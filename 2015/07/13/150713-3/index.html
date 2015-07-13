@@ -45,7 +45,7 @@
 
 
 
-  <title> 使用Github Pages和Hexo搭建博客 // 曹光鹏的博客 </title>
+  <title> 配置Hexo主题 // 曹光鹏的博客 </title>
 </head>
 
 <body>
@@ -140,7 +140,7 @@
           
           
             
-              使用Github Pages和Hexo搭建博客
+              配置Hexo主题
             
           
         </h1>
@@ -168,8 +168,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/13/150713-1/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/150713-1/"></span>
+            <a href="/2015/07/13/150713-3/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/13/150713-3/"></span>
             </a>
           </span>
           
@@ -183,67 +183,13 @@
       
 
       
-        <p>作为一名软件开发者，有个自己的博客还是非常有必要的，此次搭建博客，选了Github Pages和Hexo，下面分别介绍下：</p>
-<h1 id="Github_Pages">Github Pages</h1><p>Github Pages可以被认为是用户编写的、托管在github上的静态网页。有300M免费空间，省去了自己购买空间的钱，是搭建博客的不二之选。<br>要想拥有自己的一个空间，步骤如下：</p>
-<h2 id="注册Github">注册Github</h2><p>注册很简单，上<a href="http://www.github.com" target="_blank" rel="external">官网</a>，注册你的用户名和邮箱</p>
-<h2 id="配置Github">配置Github</h2><p>这块主要是指上传ssh公钥，github支持ssh协议，要想上传本地的文件至github，必须有密钥配对。</p>
-<h3 id="检查是否有ssh_key">检查是否有ssh key</h3><p>我用的是MacBook，下面所有的操作都是在这个环境下的。<br>打开terminal,</p>
-<pre><code>$ cd ~/<span class="class">.ssh</span>  
-</code></pre><p>如果提示：No such file or directory，说明没有，继续步骤2.2；否则就跳过2.2。</p>
-<h3 id="生成ssh_key">生成ssh key</h3><pre><code>$ ssh-keygen -t rsa -C 你的邮箱
-Generating <span class="keyword">public</span>/<span class="keyword">private</span> rsa <span class="keyword">key</span> pair.
-Enter file <span class="keyword">in</span> which <span class="keyword">to</span> save the <span class="keyword">key</span> (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;
-</code></pre><p>然后系统会要你输入密码：</p>
-<pre><code>Enter passphrase (empty <span class="keyword">for</span> no passphrase):<span class="variable">&lt;输入加密串&gt;</span>
-Enter same passphrase again:<span class="variable">&lt;再次输入加密串&gt;</span>
-</code></pre><p>这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
-<p>之后敲回车，再查看是否生成默认名字是id_rsa(私钥)和id_rsa.pub(公钥)两个文件，如果都有，那就成功了。</p>
-<h3 id="上传ssh_key(-pub后缀)到github">上传ssh key(.pub后缀)到github</h3><p>打开github网站，进入用户Settings—-&gt;SSH keys —-&gt; Add SSH key，添加id_rsa.pub的内容即可。</p>
-<h3 id="测试ssh_key是否设置成功">测试ssh key是否设置成功</h3><pre><code><span class="variable">$ </span>ssh -<span class="constant">T </span>git<span class="variable">@github</span>.com
-</code></pre><p>如果出现例如</p>
-<pre><code>Hi caoguangpeng! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.
-</code></pre><p>那就设置成功了。</p>
-<h2 id="创建GitHub_Pages仓库">创建GitHub Pages仓库</h2><p>和github建立连接后，就可以很方便地使用GitHub Pages服务了，只要在当前账户下建立形如<code>username.github.io</code>的仓库即可，创建过程都默认设置好了。</p>
-<hr>
-<h1 id="Hexo">Hexo</h1><p>Hexo是一个基于Node.js的快速、简洁且高效的博客框架，支持Markdown格式，可以很方便地生成静态网页，并托管在github上，和Github Pages配合使用，顶好！</p>
-<h2 id="安装Hexo">安装Hexo</h2><pre><code>sudo npm install -g hexo    <span class="list">(<span class="keyword">-g</span>表明全局安装，不加的话就只能在当前目录下安装)</span>
-</code></pre><p>安装过程如果很慢或者出现类似以下的错误：</p>
-<pre><code>{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }
-{ [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> }   
-</code></pre><p>那就试试：</p>
-<pre><code>sudo <span class="built_in">npm</span> install -g hexo --<span class="literal">no</span>-optional
-</code></pre><h2 id="初始化目标文件夹">初始化目标文件夹</h2><p>方法1：</p>
-<pre><code>先创建个文件夹，比如<span class="keyword">blog，然后在blog目录下，输入 </span>hexo init
-</code></pre><p>方法2：</p>
-<pre><code>直接输入 hexo <span class="keyword">init</span> blog
-</code></pre><h2 id="生成文件">生成文件</h2><p>在第2步成功后，会提示先运行“npm install”，建议输入：</p>
-<pre><code><span class="built_in">npm</span> install --<span class="literal">no</span>-optional
-</code></pre><p>之后运行：</p>
-<pre><code>hexo <span class="function"><span class="title">generate</span><span class="params">(或者缩写g,以下都用缩写了)</span></span>
-</code></pre><p>查看效果：</p>
-<pre><code>hexo <span class="function"><span class="title">server</span><span class="params">(或者缩写s)</span></span>
-</code></pre><p>然后在打开浏览器 <code>localhost:4000</code> ,就可以看到,本地已经安装好了,默认会有一篇<code>Hello World</code>的文章。</p>
-<p><code>note:Hexo3.0以上，把client和server分离了，可能运行hexo s时会出错，那么就单独再安装server模块即可</code></p>
-<h2 id="部署">部署</h2><p>还记得一开始的github仓库吗？之前的操作都在本地进行，这步操作我们将把我们写好的文章部署到github上，步骤如下：</p>
-<h3 id="修改站点_config-yml">修改站点_config.yml</h3><p>在你刚才创建的<code>blog</code>根目录下，会有个<code>_config.yml</code>，编辑它，在最底下修改为</p>
-<pre><code><span class="attribute">deploy</span>:
-    <span class="attribute">type</span>: github      
-    <span class="attribute">repository</span>:git<span class="variable">@github</span>.<span class="attribute">com</span>:caoguangpeng/caoguangpeng.github.io.git <span class="comment">//当然你要改成自己的用户名   </span>
-    <span class="attribute">branch</span>: master 
-</code></pre><h3 id="执行部署">执行部署</h3><pre><code>hexo g
-hexo <span class="function"><span class="title">deploy</span><span class="params">(缩写d)</span></span>
-</code></pre><p>执行完以后,如果报错 Error: Deployer not found : github,则执行如下命令:</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
-</code></pre><p>同时再修改 _config.yml :</p>
-<pre><code>deploy:
-    <span class="class"><span class="keyword">type</span>: <span class="title">git</span></span>
-</code></pre><p>然后再执行：</p>
-<pre><code>  hexo <span class="keyword">g</span>
-hexo <span class="literal">d</span>
-</code></pre><p>最后访问:<code>http://caoguangpeng.github.io/</code> (<strong>用户名改成自己的</strong>),就可以看到了.</p>
-<p><code>注意,每次修改配置文件后，需要hexo generate才能保存</code></p>
-<p>好了，至此博客搭建的过程就大功告成了，是不是很简单，赶紧动手试试吧！后续我会讲讲如何修改hexo的主题，以及如何写博客，敬请期待吧…</p>
+        <p>Hexo有好多好看的主题，github中排名前5的是：</p>
+<pre><code><span class="list">(<span class="keyword">iissnan/hexo-theme-next</span>, <span class="number">470</span>)</span>
+<span class="list">(<span class="keyword">TryGhost/Casper</span>, <span class="number">439</span>)</span>
+<span class="list">(<span class="keyword">daleanthony/uno</span>, <span class="number">352</span>)</span>
+<span class="list">(<span class="keyword">orderedlist/modernist</span>, <span class="number">286</span>)</span>
+<span class="list">(<span class="keyword">litten/hexo-theme-yilia</span>, <span class="number">265</span>)</span>
+</code></pre><p>我的博客用的就是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">iissnan</a>，这个主题很简洁清爽，大家可以点击进去看看，里面有很详细的教程。</p>
 
       
     </div>
@@ -255,11 +201,11 @@ hexo <span class="literal">d</span>
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/13/150713-2/">自定义博客域名</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/13/150713-2/">自定义博客域名</a>
             
           </div>
         </div>
@@ -279,8 +225,8 @@ hexo <span class="literal">d</span>
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/07/13/150713-1/"
-               data-title="使用Github Pages和Hexo搭建博客" data-url="http://yoursite.com/2015/07/13/150713-1/">
+          <div class="ds-thread" data-thread-key="2015/07/13/150713-3/"
+               data-title="配置Hexo主题" data-url="http://yoursite.com/2015/07/13/150713-3/">
           </div>
         
       </div>
@@ -375,7 +321,7 @@ hexo <span class="literal">d</span>
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Github_Pages"><span class="nav-number">1.</span> <span class="nav-text">Github Pages</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册Github"><span class="nav-number">1.1.</span> <span class="nav-text">注册Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Github"><span class="nav-number">1.2.</span> <span class="nav-text">配置Github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查是否有ssh_key"><span class="nav-number">1.2.1.</span> <span class="nav-text">检查是否有ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成ssh_key"><span class="nav-number">1.2.2.</span> <span class="nav-text">生成ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传ssh_key(-pub后缀)到github"><span class="nav-number">1.2.3.</span> <span class="nav-text">上传ssh key(.pub后缀)到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试ssh_key是否设置成功"><span class="nav-number">1.2.4.</span> <span class="nav-text">测试ssh key是否设置成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建GitHub_Pages仓库"><span class="nav-number">1.3.</span> <span class="nav-text">创建GitHub Pages仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">2.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化目标文件夹"><span class="nav-number">2.2.</span> <span class="nav-text">初始化目标文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成文件"><span class="nav-number">2.3.</span> <span class="nav-text">生成文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">2.4.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改站点_config-yml"><span class="nav-number">2.4.1.</span> <span class="nav-text">修改站点_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行部署"><span class="nav-number">2.4.2.</span> <span class="nav-text">执行部署</span></a></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
