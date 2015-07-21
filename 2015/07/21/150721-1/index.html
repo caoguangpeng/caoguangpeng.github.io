@@ -1,0 +1,674 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> OC编码规范 // 曹光鹏的博客 </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">曹光鹏的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            所有文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              OC编码规范
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-21
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/iOS/">iOS</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/21/150721-1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/21/150721-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <p>本文参考：</p>
+<p>1.<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE" target="_blank" rel="external">Apple Coding Guidelines for Cocoa</a></p>
+<p>2.<a href="https://github.com/raywenderlich/objective-c-style-guide" target="_blank" rel="external">https://github.com/raywenderlich/objective-c-style-guide</a></p>
+<p>3.程序员头条：<a href="http://www.90159.com/2015/06/17/Objective-C编码规范：26个方面解决iOS开发问题/" target="_blank" rel="external">http://www.90159.com/2015/06/17/Objective-C编码规范：26个方面解决iOS开发问题/</a> </p>
+<h1 id="代码组织">代码组织</h1><p>1.方法分组用<code>#pragma mark -</code>来标记；<br>2.方法组别排序由上至下：</p>
+<pre><code><span class="preprocessor">#<span class="keyword">pragma</span> mark - Lifecycle  </span>
+- (<span class="keyword">void</span>)viewDidLoad {}  
+- (<span class="keyword">void</span>)viewWillAppear:(BOOL)animated {}  
+<span class="preprocessor">#<span class="keyword">pragma</span> mark - IBActions  </span>
+<span class="preprocessor">#<span class="keyword">pragma</span> mark - Public</span>
+<span class="preprocessor">#<span class="keyword">pragma</span> mark - Private</span>
+<span class="preprocessor">#<span class="keyword">pragma</span> mark - Protocol conformance</span>
+<span class="preprocessor">#<span class="keyword">pragma</span> mark - Custom Accessors(这个在有的编码规范里是放在Lifecycle后面的，考虑到很多变量的初始化可以放在getter方法里面，代码比较长，放到最后比较适合)  </span>
+</code></pre><h1 id="缩进">缩进</h1><p>4个空格，可以设置1个Tab=4个空格，在Xcode-Preferences-Text Editing-Indentation里设置</p>
+<h1 id="命名">命名</h1><p>Apple命名规则尽可能坚持，长的，描述性的命名是好的。清晰比简洁更重要,由于 Xcode 强大的自动补全功能，我们不必担心名称过长的问题。<br>应该：</p>
+<pre><code>UIButton *settingsButton<span class="comment">;</span>
+</code></pre><p>不应该：</p>
+<pre><code>UIButton *<span class="built_in">set</span>But;  
+</code></pre><p>常量应该使用驼峰式命名规则，所有的单词首字母大写，比如：</p>
+<pre><code><span class="keyword">static</span> <span class="built_in">NSTimeInterval</span> <span class="keyword">const</span> TutorialDuration = <span class="number">0.3</span>;
+</code></pre><p>变量也是使用驼峰式，但首单词的首字母小写，比如：</p>
+<pre><code>descriptiveVariableName
+</code></pre><p>如果BOOL属性的名字是一个形容词，属性就能忽略”is”前缀，但要指定get访问器的惯用名称。例如：</p>
+<pre><code><span class="keyword">@property</span> (<span class="keyword">assign</span>, getter=isEditable) <span class="built_in">BOOL</span> editable;  
+</code></pre><h1 id="使用前缀">使用前缀</h1><p>如果代码需要打包成 Framework 给别的工程使用，或者工程项目非常庞大，需要拆分成不同的模块，使用命名前缀是非常有用的。</p>
+<p>前缀由大写的字母缩写组成，一般是2到3个大写之母，比如 Cocoa 中 NS 前缀代表 Founation 框架中的类， IB 则代表 Interface Builder 框架。</p>
+<p>可以在为类、协议、函数、常量以及 typedef 宏命名的时候使用前缀，但注意 不要为成员变量或者方法使用前缀，因为他们本身就包含在类的命名空间内。 </p>
+<p>命名前缀的时候不要和苹果 SDK 框架冲突。</p>
+<h1 id="下划线">下划线</h1><p>当使用属性时，实例变量应该使用self.来访问和改变。但有一个特例：在初始化方法里，实例变量(例如，_variableName)应该直接被使用来避免getters/setters潜在的副作用。</p>
+<p>局部变量不应该包含下划线。</p>
+<p>尽量的使用属性而非实例变量，如果真用实例变量，其命名必须使用下划线 _ 作为前缀，这样可以缩小Xcode自动完成的选项取值范围。<br>应该：</p>
+<pre><code><span class="variable">@interface</span> <span class="attribute">RNCSection</span>: NSObject
+<span class="variable">@property</span> (nonatomic) NSString *headline;
+<span class="variable">@end</span>
+</code></pre><p>不应该：</p>
+<pre><code>@<span class="class"><span class="keyword">interface</span> <span class="title">RNCSection</span> : NSObject </span>{
+    NSString *_headline;
+}
+</code></pre><h1 id="方法">方法</h1><p>在方法签名中，应该在方法类型(-/+ 符号)之后有一个空格。在方法各个段之间应该也有一个空格(符合Apple的风格)。在参数之前应该包含一个具有描述性的关键字来描述参数。另外不能用“and”这个词。</p>
+<p>应该：</p>
+<pre><code>- <span class="params">(void)</span>setExampleText:<span class="params">(NSString *)</span><span class="built_in">text</span> image:<span class="params">(UIImage *)</span>image;  
+- <span class="params">(void)</span>sendAction:<span class="params">(SEL)</span>aSelector to:<span class="params">(id)</span>anObject forAllCells:<span class="params">(BOOL)</span>flag;
+</code></pre><p>不应该：</p>
+<pre><code>- (instancetype)<span class="string">initWith:</span>(<span class="typename">int</span>)width <span class="string">and:</span>(<span class="typename">int</span>)height;
+</code></pre><h1 id="属性特性">属性特性</h1><p>所有属性特性应该显式地列出来，有助于新手阅读代码。属性特性的顺序应该是storage、atomicity，与在Interface Builder连接UI元素时自动生成代码一致。<br>应该：</p>
+<pre><code><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *containerView;  
+<span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;  (<span class="built_in">NSString</span>为什么用<span class="keyword">copy</span>，因为即使你声明一个<span class="built_in">NSString</span>的属性，有人可能传入一个<span class="built_in">NSMutableString</span>的实例，然后在你没有注意的情况下修改它。)
+</code></pre><p>不应该：</p>
+<pre><code><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *containerView;  
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;
+</code></pre><p>备注下：定义一个属性时，编译器会自动生成线程安全的存取方法（ Atomic ），但这样会大大降低性能，特别是对于那些需要频繁存取的属性来说，是极大的浪费。所以如果定义的属性不需要线程保护，记得手动添加属性关键字 nonatomic 来取消编译器的优化。</p>
+<h1 id="点语法">点语法</h1><p>不要用点分语法来调用方法，只用来访问属性，这样是为了防止代码可读性问题。</p>
+<p>应该：</p>
+<pre><code><span class="built_in">NSInteger</span> arrayCount = [<span class="keyword">self</span><span class="variable">.array</span> count];  
+view<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];  
+[<span class="built_in">UIApplication</span> sharedApplication]<span class="variable">.delegate</span>; 
+</code></pre><p>不应该：</p>
+<pre><code><span class="built_in">NSInteger</span> arrayCount = <span class="keyword">self</span><span class="variable">.array</span><span class="variable">.count</span>;  
+[view setBackgroundColor:[<span class="built_in">UIColor</span> orangeColor]];  
+<span class="built_in">UIApplication</span><span class="variable">.sharedApplication</span><span class="variable">.delegate</span>;  
+</code></pre><h1 id="私有属性">私有属性</h1><p>私有属性应该在类的实现文件中的类扩展(匿名分类)中声明</p>
+<pre><code><span class="variable">@interface</span> RWTDetailViewController ()  
+<span class="variable">@property</span> (strong, nonatomic) GADBannerView *googleAdView;  
+<span class="variable">@property</span> (strong, nonatomic) ADBannerView *iAdView;  
+<span class="variable">@property</span> (strong, nonatomic) UIWebView *adXWebView;  
+<span class="variable">@end</span>  
+</code></pre><h1 id="Init方法">Init方法</h1><p>Init方法应该遵循Apple生成代码模板的命名规则，返回类型应该使用instancetype而不是id。</p>
+<pre><code>- (instancetype)<span class="keyword">init</span> {  
+  <span class="keyword">self</span> = [<span class="keyword">super</span> <span class="keyword">init</span>];  
+  <span class="keyword">if</span> (<span class="keyword">self</span>) {  
+    <span class="comment">// ...  </span>
+  }  
+  <span class="keyword">return</span> <span class="keyword">self</span>;  
+}  
+</code></pre><h1 id="类构造方法">类构造方法</h1><p>当类构造方法被使用时，它应该返回类型是instancetype而不是id。这样确保编译器正确地推断结果类型。</p>
+<pre><code>@<span class="keyword">interface</span> Airplane  
++ (instancetype)airplaneWithType:(RWTAirplaneType)<span class="class"><span class="keyword">type</span>;  </span>
+@<span class="keyword">end</span>  
+</code></pre><h1 id="CGRect函数">CGRect函数</h1><p>当访问CGRect里的x, y, width, 或 height时，应该使用CGGeometry函数而不是直接通过结构体来访问。<br>应该：</p>
+<pre><code><span class="built_in">CGRect</span> frame = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span>;  
+<span class="built_in">CGFloat</span> x = <span class="built_in">CGRectGetMinX</span>(frame);  
+<span class="built_in">CGFloat</span> y = <span class="built_in">CGRectGetMinY</span>(frame);  
+<span class="built_in">CGFloat</span> width = <span class="built_in">CGRectGetWidth</span>(frame);  
+<span class="built_in">CGFloat</span> height = <span class="built_in">CGRectGetHeight</span>(frame);  
+</code></pre><p>不应该：</p>
+<pre><code><span class="built_in">CGRect</span> frame = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span>;  
+<span class="built_in">CGFloat</span> x = frame<span class="variable">.origin</span><span class="variable">.x</span>;  
+<span class="built_in">CGFloat</span> y = frame<span class="variable">.origin</span><span class="variable">.y</span>;  
+<span class="built_in">CGFloat</span> width = frame<span class="variable">.size</span><span class="variable">.width</span>;  
+<span class="built_in">CGFloat</span> height = frame<span class="variable">.size</span><span class="variable">.height</span>;  
+</code></pre><h1 id="黄金路径">黄金路径</h1><p>当使用条件语句编码时，左手边的代码应该是”golden” 或 “happy”路径。也就是不要嵌套if语句<br>应该：</p>
+<pre><code>- (<span class="keyword">void</span>)someMethod {  
+  <span class="keyword">if</span> (![someOther boolValue]) {  
+    <span class="keyword">return</span>;  <span class="comment">//先把异常情况写出来，突出下面重要的代码</span>
+  }  
+  <span class="comment">//Do something important  </span>
+}  
+</code></pre><p>不应该：</p>
+<pre><code><span class="tag">-</span> (void)<span class="tag">someMethod</span> {  
+  <span class="tag">if</span> ([someOther boolValue]) {  
+    <span class="comment">//Do something important  </span>
+  }  
+}  
+</code></pre>
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/13/150713-5/">Vim常用命令</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/07/21/150721-1/"
+               data-title="OC编码规范" data-url="http://yoursite.com/2015/07/21/150721-1/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="Guangpeng Cao" />
+          <p class="site-author-name">Guangpeng Cao</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/caoguangpeng" target="_blank">github</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码组织"><span class="nav-number">1.</span> <span class="nav-text">代码组织</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缩进"><span class="nav-number">2.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命名"><span class="nav-number">3.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用前缀"><span class="nav-number">4.</span> <span class="nav-text">使用前缀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下划线"><span class="nav-number">5.</span> <span class="nav-text">下划线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">6.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性特性"><span class="nav-number">7.</span> <span class="nav-text">属性特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#点语法"><span class="nav-number">8.</span> <span class="nav-text">点语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#私有属性"><span class="nav-number">9.</span> <span class="nav-text">私有属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Init方法"><span class="nav-number">10.</span> <span class="nav-text">Init方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类构造方法"><span class="nav-number">11.</span> <span class="nav-text">类构造方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGRect函数"><span class="nav-number">12.</span> <span class="nav-text">CGRect函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#黄金路径"><span class="nav-number">13.</span> <span class="nav-text">黄金路径</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">Guangpeng Cao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"caoguangpeng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+  
+  <!-- lazyload -->
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+      <script type="text/javascript">
+        jQuery(function() {          
+            jQuery("#posts img").lazyload({
+              placeholder:"http://www.arao.me/loading.gif",  
+                effect:"fadeIn"
+              });
+            });
+    </script>   
+</body>
+</html>
